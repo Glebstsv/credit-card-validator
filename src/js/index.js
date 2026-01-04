@@ -1,4 +1,4 @@
-import '../styles/main.css';
+import '../main.css';  
 import { CardValidatorUI } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
