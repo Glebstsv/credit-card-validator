@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Validator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="validator-card">
+            <h1>Credit Card Validator</h1>
+            <p class="subtitle">Проверьте валидность номера банковской карты</p>
+            
+            <div class="card-input-container">
+                <i class="fas fa-credit-card card-icon"></i>
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    id="cardNumber"
+                    placeholder="Введите номер карты"
+                    maxlength="19"
+                    autocomplete="off"
+                >
+            </div>
+            
+            <div class="payment-systems" id="paymentSystems">
+            </div>
+            
+            <div class="result" id="validationResult">
+                <i class="fas result-icon"></i>
+                <span id="resultText"></span>
+            </div>
+            
+            <div class="instructions">
+                <h3>Легенда:</h3>
+                <ul>
+                    <li>Введите номер карты в поле выше</li>
+                    <li>Код автоматически определит платежную систему</li>
+                    <li>Проверит валидность номера</li>
+                </ul>
+                <div class="example-cards">
+                    <strong>Примеры тестовых карт:</strong><br>
+                    Visa: 4111 1111 1111 1111<br>
+                    MasterCard: 5555 5555 5555 4444<br>
+                    Mir: 2200 0000 0000 0004
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

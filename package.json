@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "test": "jest --testPathPattern=tests/unit",
+    "e2e": "jest tests/e2e --detectOpenHandles --forceExit",
+    "test:all": "npm test && npm run e2e",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/e2e/"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/js/**/*.js",
+      "!src/js/index.js"
+    ]
+  }
+}
