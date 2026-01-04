@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -9,7 +8,7 @@ module.exports = (env, argv) => {
   return {
     entry: './src/js/index.js',
     output: {
-      filename: 'bundle.[contenthash].js',
+      filename: isProduction ? 'bundle.[contenthash].js' : 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/'
     },
@@ -25,7 +24,7 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            'style-loader',
             'css-loader'
           ]
         }
@@ -37,9 +36,6 @@ module.exports = (env, argv) => {
         template: './src/index.html',
         filename: 'index.html',
         inject: 'body'
-      }),
-      new MiniCssExtractPlugin({
-        filename: 'styles.[contenthash].css'
       })
     ],
     devServer: {
