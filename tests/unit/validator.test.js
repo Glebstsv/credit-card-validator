@@ -77,3 +77,13 @@ describe('Validator functions', () => {
         });
     });
 });
+
+test('should handle 19-digit cards', () => {
+    expect(luhnCheck('4539856418007478490')).toBe(true);
+    expect(luhnCheck('3536159993177727554')).toBe(true);
+});
+
+test('should format 19-digit cards correctly', () => {
+    expect(formatCardNumber('4539856418007478490')).toBe('4539 8564 1800 7478 490');
+    expect(formatCardNumber('3536159993177727554')).toBe('3536 1599 9317 7727 554');
+});

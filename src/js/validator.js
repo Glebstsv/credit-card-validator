@@ -16,8 +16,8 @@ export function luhnCheck(cardNumber) {
     
     let sum = 0;
     let isEven = false;
-    
-    // Идем с конца номера
+
+        // Идем с конца номера
     for (let i = cleaned.length - 1; i >= 0; i--) {
         let digit = parseInt(cleaned.charAt(i), 10);
         
@@ -44,10 +44,10 @@ export function formatCardNumber(cardNumber) {
     if (!cardNumber) return '';
     
     const cleaned = cardNumber.replace(/\D/g, '');
-    
-    const parts = [];
-    for (let i = 0; i < cleaned.length; i += 4) {
-        parts.push(cleaned.substring(i, i + 4));
+    const limited = cleaned.substring(0, 19);
+        const parts = [];
+    for (let i = 0; i < limited.length; i += 4) {
+        parts.push(limited.substring(i, i + 4));
     }
     
     return parts.join(' ').trim();
